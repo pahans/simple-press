@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { PostsList } from ".";
 import { BlogPost } from "./PostsList";
 
@@ -19,7 +19,7 @@ const posts: BlogPost[] = [
 describe("PostsList", () => {
   it("should render form fields", async () => {
     render(<PostsList posts={posts} />);
-    posts.forEach(({ title, description, author }) => {
+    posts.forEach(({ title, description }) => {
       expect(screen.getByText(title)).toBeInTheDocument();
       expect(screen.getByText(description)).toBeInTheDocument();
     });

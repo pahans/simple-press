@@ -6,6 +6,10 @@
     "plugin:storybook/recommended"
   ],
   "globals": {
-    "React": true
+    "React": true,
+    "describe": true,
+    "it": true,
+    "author": true,
+    "expect": true
   }
 }
