@@ -14,12 +14,12 @@ interface PostsListProps {
 export const PostsList: React.FC<PostsListProps> = ({ posts }) => {
   return (
     <>
-      <ol>
+      <section>
         {posts.map(({ title, description, author, date }) => (
-          <li className="mb-10 ms-4" key={title}>
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+          <article className="mb-10 ms-4" key={title}>
+            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
               {title}
-            </h3>
+            </h2>
             <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
               {author} {date}
             </time>
@@ -33,9 +33,9 @@ export const PostsList: React.FC<PostsListProps> = ({ posts }) => {
               Read more
             </Link>
             <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
-          </li>
+          </article>
         ))}
-      </ol>
+      </section>
     </>
   );
 };
