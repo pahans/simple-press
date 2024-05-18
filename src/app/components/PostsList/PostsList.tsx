@@ -3,8 +3,8 @@ import Link from "next/link";
 export interface BlogPost {
   title: string;
   description: string;
-  author: string;
-  date: string;
+  author?: string;
+  date?: string;
 }
 
 interface PostsListProps {
