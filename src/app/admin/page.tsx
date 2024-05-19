@@ -1,5 +1,5 @@
-import { EditPost } from "../components/EditPost/EditPost";
-import { fetchAllPosts, fetchPost } from "../lib/data";
+import { EditPost } from "@/app/components/edit-post";
+import { fetchAllPosts, fetchPost } from "@/app/lib/data";
 import { PostsTable } from "./posts-table";
 
 interface AdminPageProps {

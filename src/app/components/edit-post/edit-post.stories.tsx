@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { EditPost } from "./EditPost";
+import { EditPost } from "./edit-post";
 
 const meta = {
   title: "EditPost",
