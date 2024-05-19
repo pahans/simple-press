@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.4.0",
-    "@mdxeditor/editor": "^3.0.7",
     "@radix-ui/react-alert-dialog": "^1.0.5",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-label": "^2.0.2",
