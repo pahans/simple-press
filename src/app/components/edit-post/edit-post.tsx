@@ -1,6 +1,7 @@
 "use client";
 import { createOrUpdatePost } from "@/app/lib/actions";
 import { BlogPost } from "@/app/lib/definitions";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -8,7 +9,12 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { LoaderCircleIcon } from "lucide-react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import { useTransition } from "react";
 
 interface EditPostProps {
   post?: BlogPost;
@@ -20,6 +26,12 @@ export const EditPost: React.FC<EditPostProps> = ({ post }) => {
   const { replace } = useRouter();
   const overlay = searchParams.get("overlay")?.toString();
   const canShowModal = overlay === "new-post" || overlay === "edit-post";
+
+  let [isPending, startTransition] = useTransition();
+
+  const onSubmit = async (formData: FormData) => {
+    startTransition(() => void createOrUpdatePost(formData));
+  };
 
   return (
     <Dialog
@@ -40,44 +52,36 @@ export const EditPost: React.FC<EditPostProps> = ({ post }) => {
             {Boolean(post) ? "Edit Blog Post" : "Add New Blog Post"}
           </DialogTitle>
           <DialogDescription asChild>
-            <form className="mx-auto w-full" action={createOrUpdatePost}>
+            <form className="mx-auto w-full" action={onSubmit}>
               <div className="mb-5">
-                <label
-                  htmlFor="title"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  Title
-                </label>
-                <input
+                <Label htmlFor="title">Title</Label>
+                <Input
                   type="title"
                   name="title"
                   defaultValue={post?.title}
+                  disabled={isPending}
                   autoFocus
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   required
+                  className="mt-2"
                 />
               </div>
               <div className="mb-5">
-                <label
-                  htmlFor="description"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  Description
-                </label>
-                <textarea
+                <Label htmlFor="description">Description</Label>
+                <Textarea
                   name="description"
+                  className="mt-2"
+                  disabled={isPending}
                   defaultValue={post?.description}
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   required
                 />
               </div>
               {post && <input type="hidden" name="postId" value={post.id} />}
-              <button
-                type="submit"
-                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              >
+              <Button type="submit">
+                {isPending && (
+                  <LoaderCircleIcon className="mr-2 animate-spin" />
+                )}
                 Submit
-              </button>
+              </Button>
             </form>
           </DialogDescription>
         </DialogHeader>

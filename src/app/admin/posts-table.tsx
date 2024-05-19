@@ -89,6 +89,7 @@ export const PostsTable: React.FC<PostsTableProps> = ({ posts }) => {
       },
     },
   ];
+
   return (
     <div>
       <DataTable columns={columns} data={posts} />
