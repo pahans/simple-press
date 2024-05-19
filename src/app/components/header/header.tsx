@@ -13,8 +13,11 @@ interface HeaderProps {}
 
 export const Header: React.FC<HeaderProps> = () => {
   return (
-    <header className="border-b mb-10 py-2 sticky top-0 flex-none w-full mx-auto bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-800">
-      <div className="flex gap-2 max-w-2xl mx-auto items-center justify-between container">
+    <header
+      aria-label="Site navigation"
+      className="border-b mb-10 py-2 sticky top-0 flex-none w-full mx-auto bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-800 border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+    >
+      <nav className="flex gap-2 max-w-2xl mx-auto items-center justify-between container">
         <Link className="flex gap-2 relative items-center" href="/">
           <Image
             src={ComposeLogo}
@@ -43,7 +46,7 @@ export const Header: React.FC<HeaderProps> = () => {
             </Drawer.Content>
           </Drawer.Portal>
         </Drawer.Root>
-      </div>
+      </nav>
     </header>
   );
 };

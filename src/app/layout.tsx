@@ -23,7 +23,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         )}
       >
         <Header />
-        <div className="max-w-2xl container">{children}</div>
+        <main className="max-w-2xl container">{children}</main>
       </body>
     </html>
   );

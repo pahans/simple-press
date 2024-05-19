@@ -25,7 +25,7 @@ export const Menu: React.FC<MenuProps> = ({ mobile, className = "" }) => {
       })}
     >
       {menuItems.map((item) => (
-        <>
+        <React.Fragment key={item.label}>
           <Button variant="ghost" asChild>
             <Link
               key={item.label}
@@ -39,7 +39,7 @@ export const Menu: React.FC<MenuProps> = ({ mobile, className = "" }) => {
             </Link>
           </Button>
           {mobile && <Separator />}
-        </>
+        </React.Fragment>
       ))}
     </div>
   );
