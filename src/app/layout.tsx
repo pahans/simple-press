@@ -1,6 +1,7 @@
+import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
+import { fontSans } from "./fonts";
 import "./globals.css";
-import { inter } from "./fonts";
 
 export const metadata: Metadata = {
   title: "Simple Press",
@@ -14,7 +15,14 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.variable
+        )}
+      >
+        <div className="max-w-2xl mx-auto">{children}</div>
+      </body>
     </html>
   );
 }

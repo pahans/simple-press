@@ -4,7 +4,7 @@ export interface PostsTable {
   id: Generated<number>;
   title: string;
   description: string;
-  created_at: ColumnType<Date, string | undefined, never>;
+  createdAt: ColumnType<Date, string | undefined, never>;
 }
 
 export interface Database {

@@ -15,6 +15,15 @@
     "jest": true
   },
   "rules": {
-    "react/self-closing-comp": "error"
+    "react/self-closing-comp": "error",
+    "no-extra-boolean-cast": "off",
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": true
+      }
+    ]
   }
 }

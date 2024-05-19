@@ -4,12 +4,14 @@ import { BlogPost } from "./PostsList";
 
 const posts: BlogPost[] = [
   {
+    id: 1,
     title: "First Post",
     description: "This is my first blog post",
     author: "Pahan",
     date: "2020-04-02",
   },
   {
+    id: 2,
     title: "Second Post",
     description: "This is my second blog post",
     author: "Pahan",
