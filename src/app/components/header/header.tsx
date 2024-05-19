@@ -8,6 +8,7 @@ import ComposeLogo from "./compose-icon.png";
 import React from "react";
 import { Menu } from "./menu";
 import { MenuIcon } from "lucide-react";
+import { ModeToggle } from "./mode-toggle";
 
 interface HeaderProps {}
 
@@ -25,27 +26,28 @@ export const Header: React.FC<HeaderProps> = () => {
             className="object-contain"
             height={50}
           />
-          <h1>Simple Press</h1>
+          <h1 className="hidden sm:block">Simple Press</h1>
         </Link>
         <div className="flex gap-4 items-center">
           <Menu className="hidden md:block" />
-        </div>
+          <ModeToggle />
 
-        <Drawer.Root direction="right">
-          <Drawer.Trigger asChild className="md:hidden">
-            <Button size="icon" variant="ghost" asChild>
-              <MenuIcon className="h-4 w-4 justify-end" />
-            </Button>
-          </Drawer.Trigger>
-          <Drawer.Portal>
-            <Drawer.Overlay className="fixed inset-0 bg-black/40" />
-            <Drawer.Content className="bg-white flex flex-col h-full w-40 mt-24 fixed bottom-0 right-0 py-10">
-              <div className="flex flex-col items-center justify-center">
-                <Menu mobile />
-              </div>
-            </Drawer.Content>
-          </Drawer.Portal>
-        </Drawer.Root>
+          <Drawer.Root direction="right">
+            <Drawer.Trigger asChild>
+              <Button size="icon" variant="ghost" className="md:hidden">
+                <MenuIcon className="h-4 w-4 justify-end" />
+              </Button>
+            </Drawer.Trigger>
+            <Drawer.Portal>
+              <Drawer.Overlay className="fixed inset-0 bg-black/40" />
+              <Drawer.Content className="bg-white dark:border-gray-600 dark:bg-gray-800 flex flex-col h-full w-40 mt-24 fixed bottom-0 right-0 py-10">
+                <div className="flex flex-col items-center justify-center">
+                  <Menu mobile />
+                </div>
+              </Drawer.Content>
+            </Drawer.Portal>
+          </Drawer.Root>
+        </div>
       </nav>
     </header>
   );

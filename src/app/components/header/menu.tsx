@@ -19,10 +19,13 @@ const menuItems = [
 export const Menu: React.FC<MenuProps> = ({ mobile, className = "" }) => {
   return (
     <div
-      className={cn("flex items-center gap-4", {
-        "flex-col items-start": mobile,
-        className,
-      })}
+      className={cn(
+        "flex items-center gap-4",
+        {
+          "flex-col items-start": mobile,
+        },
+        className
+      )}
     >
       {menuItems.map((item) => (
         <React.Fragment key={item.label}>

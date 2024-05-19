@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { fontSans } from "./fonts";
 import "./globals.css";
 import { Header } from "@/app/components/header";
+import { ThemeProvider } from "@/app/components/theme-provider";
 
 export const metadata: Metadata = {
   title: "Simple Press",
@@ -22,8 +23,17 @@ export default function RootLayout({ children }: RootLayoutProps) {
           fontSans.variable
         )}
       >
-        <Header />
-        <main className="max-w-2xl container">{children}</main>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <>
+            <Header />
+            <main className="max-w-2xl container">{children}</main>
+          </>
+        </ThemeProvider>
       </body>
     </html>
   );

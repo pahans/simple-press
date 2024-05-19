@@ -27,7 +27,7 @@ export const EditPost: React.FC<EditPostProps> = ({ post }) => {
   const overlay = searchParams.get("overlay")?.toString();
   const canShowModal = overlay === "new-post" || overlay === "edit-post";
 
-  let [isPending, startTransition] = useTransition();
+  const [isPending, startTransition] = useTransition();
 
   const onSubmit = async (formData: FormData) => {
     startTransition(() => void createOrUpdatePost(formData));
