@@ -7,6 +7,11 @@ export interface PostsTable {
   createdAt: ColumnType<Date, string | undefined, never>;
 }
 
+export type BlogPost = Omit<PostsTable, "id" | "createdAt"> & {
+  id: number;
+  createdAt: Date;
+};
+
 export interface Database {
   posts: PostsTable;
 }

@@ -7,12 +7,16 @@ import { redirect } from "next/navigation";
 const schema = z.object({
   title: z.string(),
   description: z.string(),
+  postId: z.number().optional(),
 });
 
-export async function createPost(formData: FormData) {
+export async function createOrUpdatePost(formData: FormData) {
+  const { title, description, postId } = Object.fromEntries(formData);
+
   const validatedFields = schema.safeParse({
-    title: formData.get("title"),
-    description: formData.get("description"),
+    title,
+    description,
+    id: postId,
   });
 
   // Return early if the form data is invalid
@@ -21,15 +25,22 @@ export async function createPost(formData: FormData) {
       errors: validatedFields.error.flatten().fieldErrors,
     };
   }
+  const post = {
+    title: title?.toString() || "",
+    description: description?.toString() || "",
+  };
 
-  await db
-    .insertInto("posts")
-    .values({
-      title: formData.get("title") as string,
-      description: formData.get("description") as string,
-    })
-    .executeTakeFirst();
-  redirect("/admin");
+  if (postId) {
+    await db
+      .updateTable("posts")
+      .set(post)
+      .where("posts.id", "=", Number(postId))
+      .executeTakeFirst();
+    redirect("/admin");
+  } else {
+    await db.insertInto("posts").values(post).executeTakeFirst();
+    redirect("/admin");
+  }
 }
 
 export async function deletePost(id: number) {

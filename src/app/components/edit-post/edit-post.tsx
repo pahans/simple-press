@@ -1,5 +1,6 @@
 "use client";
-import { createPost } from "@/app/lib/actions";
+import { createOrUpdatePost } from "@/app/lib/actions";
+import { BlogPost } from "@/app/lib/definitions";
 import {
   Dialog,
   DialogContent,
@@ -8,7 +9,6 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import { type BlogPost } from "../PostsList/PostsList";
 
 interface EditPostProps {
   post?: BlogPost;
@@ -40,7 +40,7 @@ export const EditPost: React.FC<EditPostProps> = ({ post }) => {
             {Boolean(post) ? "Edit Blog Post" : "Add New Blog Post"}
           </DialogTitle>
           <DialogDescription asChild>
-            <form className="mx-auto w-full" action={createPost}>
+            <form className="mx-auto w-full" action={createOrUpdatePost}>
               <div className="mb-5">
                 <label
                   htmlFor="title"
@@ -71,7 +71,7 @@ export const EditPost: React.FC<EditPostProps> = ({ post }) => {
                   required
                 />
               </div>
-
+              {post && <input type="hidden" name="postId" value={post.id} />}
               <button
                 type="submit"
                 className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"

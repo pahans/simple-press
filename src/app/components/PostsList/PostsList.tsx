@@ -1,14 +1,6 @@
 import { fetchAllPosts } from "@/app/lib/data";
 import Link from "next/link";
 
-export interface BlogPost {
-  id: number;
-  title: string;
-  description: string;
-  author?: string;
-  date?: string;
-}
-
 interface PostsListProps {}
 
 export const PostsList: React.FC<PostsListProps> = async () => {
