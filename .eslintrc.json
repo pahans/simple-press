@@ -10,6 +10,7 @@
     "describe": true,
     "it": true,
     "author": true,
-    "expect": true
+    "expect": true,
+    "jest": true
   }
 }

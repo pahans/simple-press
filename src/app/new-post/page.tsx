@@ -1,3 +1,9 @@
+import { EditPost } from "../components/EditPost/EditPost";
+
 export default function NewPostPage() {
-  return <div className="">create new blog post</div>;
+  return (
+    <div className="">
+      <EditPost />
+    </div>
+  );
 }

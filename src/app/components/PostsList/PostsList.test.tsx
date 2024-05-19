@@ -16,9 +16,18 @@ const posts: BlogPost[] = [
     date: "2020-04-02",
   },
 ];
+
+jest.mock("@/app/lib/data", () => ({
+  fetchAllPosts: () => {
+    return Promise.resolve(posts);
+  },
+}));
+
 describe("PostsList", () => {
-  it("should render form fields", async () => {
-    render(<PostsList posts={posts} />);
+  it("should render posts list", async () => {
+    const ResolvedPostsList = await PostsList({});
+    render(ResolvedPostsList);
+
     posts.forEach(({ title, description }) => {
       expect(screen.getByText(title)).toBeInTheDocument();
       expect(screen.getByText(description)).toBeInTheDocument();
