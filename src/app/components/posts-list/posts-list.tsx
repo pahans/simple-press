@@ -14,8 +14,10 @@ export const PostsList: React.FC<PostsListProps> = async () => {
               <p className="text-xs text-muted-foreground">
                 {createdAt.toDateString()}
               </p>
-              <h2 className="text-sm font-medium leading-none">{title}</h2>
-              <p className="text-sm text-muted-foreground">{description}</p>
+              <h2 className="font-medium leading-none capitalize">{title}</h2>
+              <p className="text-sm text-muted-foreground text-justify">
+                {description}
+              </p>
             </div>
             <Separator className="my-4" />
           </div>

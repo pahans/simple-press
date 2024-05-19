@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { fontSans } from "./fonts";
 import "./globals.css";
+import { Header } from "@/app/components/header";
 
 export const metadata: Metadata = {
   title: "Simple Press",
@@ -21,7 +22,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
           fontSans.variable
         )}
       >
-        <div className="max-w-2xl mx-auto">{children}</div>
+        <Header />
+        <div className="max-w-2xl container">{children}</div>
       </body>
     </html>
   );

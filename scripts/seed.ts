@@ -11,7 +11,7 @@ async function seedPosts() {
       .createTable("posts")
       .addColumn("id", "serial", (cb) => cb.primaryKey())
       .addColumn("title", "varchar(255)", (cb) => cb.notNull())
-      .addColumn("description", "varchar(255)", (cb) => cb.notNull())
+      .addColumn("description", "text", (cb) => cb.notNull())
       .addColumn("createdAt", sql`timestamp with time zone`, (cb) =>
         cb.defaultTo(sql`current_timestamp`)
       )

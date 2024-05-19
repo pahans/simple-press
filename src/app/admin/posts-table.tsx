@@ -2,7 +2,6 @@
 
 import { ColumnDef } from "@tanstack/react-table";
 
-import { BlogPost } from "@/app/components/posts-list/posts-list";
 import { Edit as EditIcon, Trash2Icon } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -19,6 +18,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { DataTable } from "./data-table";
+import { BlogPost } from "@/app/lib/definitions";
 
 interface PostsTableProps {
   posts: BlogPost[];
@@ -31,12 +31,6 @@ export const PostsTable: React.FC<PostsTableProps> = ({ posts }) => {
   const onDelete = async (id: number) => {
     await deletePost(id);
     router.refresh();
-  };
-
-  const onCreatePost = () => {
-    const params = new URLSearchParams();
-    params.set("overlay", "new-post");
-    router.replace(`${pathname}?${params.toString()}`);
   };
 
   const onEditPost = (id: number) => {
@@ -97,10 +91,6 @@ export const PostsTable: React.FC<PostsTableProps> = ({ posts }) => {
   ];
   return (
     <div>
-      <Button className="my-2" onClick={onCreatePost}>
-        <span className="pr-2">Add Post</span>
-        <EditIcon className="h-4 w-4" />
-      </Button>
       <DataTable columns={columns} data={posts} />
     </div>
   );
