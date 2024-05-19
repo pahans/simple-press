@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { PostsList } from ".";
-import { BlogPost } from "./PostsList";
+import { BlogPost } from "./posts-list";
 
 const posts: Array<BlogPost> = Array.from({ length: 10 }, (_, i) => {
   return {

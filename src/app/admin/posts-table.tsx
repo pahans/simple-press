@@ -2,7 +2,7 @@
 
 import { ColumnDef } from "@tanstack/react-table";
 
-import { BlogPost } from "@/app/components/PostsList/PostsList";
+import { BlogPost } from "@/app/components/posts-list/posts-list";
 import { Edit as EditIcon, Trash2Icon } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";

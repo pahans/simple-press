@@ -1,4 +1,4 @@
-import { PostsList } from "./components/PostsList";
+import { PostsList } from "./components/posts-list";
 import { Suspense } from "react";
 export default function HomePage() {
   return (
