@@ -2,7 +2,7 @@
 
 import { db } from "@/app/lib/kysely";
 import { z } from "zod";
-import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
 const schema = z.object({
   title: z.string(),
@@ -29,7 +29,7 @@ export async function createPost(formData: FormData) {
       description: formData.get("description") as string,
     })
     .executeTakeFirst();
-  revalidatePath("/");
+  redirect("/admin");
 }
 
 export async function deletePost(id: number) {
