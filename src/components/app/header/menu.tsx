@@ -13,7 +13,7 @@ interface MenuProps {
 
 const menuItems = [
   { icon: EditIcon, label: "Add Post", link: "/admin?overlay=new-post" },
-  { icon: LogInIcon, label: "Login", link: "#" },
+  { icon: LogInIcon, label: "Login", link: "/login" },
 ];
 
 export const Menu: React.FC<MenuProps> = ({ mobile, className = "" }) => {

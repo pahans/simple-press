@@ -25,7 +25,7 @@ export const Header: React.FC<HeaderProps> = () => {
             className="object-contain"
             height={50}
           />
-          <h1 className="hidden sm:block">Simple Press</h1>
+          <h1>Simple Press</h1>
         </Link>
         <div className="flex gap-4 items-center">
           <Menu className="hidden md:block" />
