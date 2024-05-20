@@ -3,6 +3,7 @@
 import { db } from "@/app/lib/kysely";
 import { z } from "zod";
 import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 const schema = z.object({
   title: z.string(),
@@ -36,9 +37,11 @@ export async function createOrUpdatePost(formData: FormData) {
       .set(post)
       .where("posts.id", "=", Number(postId))
       .executeTakeFirst();
+    revalidatePath("/");
     redirect("/admin");
   } else {
     await db.insertInto("posts").values(post).executeTakeFirst();
+    revalidatePath("/");
     redirect("/admin");
   }
 }
@@ -46,5 +49,6 @@ export async function createOrUpdatePost(formData: FormData) {
 export async function deletePost(id: number) {
   //  Note: In a production environment may be we should not delete this.
   //  We could flag it as deleted instead.
+  revalidatePath("/");
   await db.deleteFrom("posts").where("posts.id", "=", id).executeTakeFirst();
 }
