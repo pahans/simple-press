@@ -32,6 +32,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.51.4",
+    "react-intersection-observer": "^9.10.2",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
     "vaul": "^0.9.1",
@@ -55,6 +56,8 @@
     "@types/node": "^20",
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^7.10.0",
+    "@typescript-eslint/parser": "^7.10.0",
     "better-random-words": "^1.0.0",
     "eslint": "^8.57.0",
     "eslint-config-next": "14.2.3",
@@ -67,7 +70,8 @@
     "pre-commit": "^1.2.2",
     "storybook": "^8.1.1",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "typescript": "^5",
+    "typescript-eslint": "^7.10.0"
   },
   "pre-commit": [
     "lint",

@@ -1,6 +1,7 @@
+import { POST_LIST_PAGE_SIZE } from "./constants";
 import { db, sql } from "./kysely";
 
-export async function fetchAllPosts() {
+export async function fetchAllPosts(offset = 0) {
   const blogPosts = await db
     .selectFrom("posts")
     .select([
@@ -10,6 +11,8 @@ export async function fetchAllPosts() {
       "createdAt",
     ])
     .orderBy("createdAt desc")
+    .offset(offset)
+    .limit(POST_LIST_PAGE_SIZE)
     .execute();
 
   return blogPosts.map((post) => ({
