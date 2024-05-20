@@ -1,4 +1,4 @@
-import { fetchPost } from "@/app/lib/data";
+import { fetchPost } from "@/lib/data";
 import { ReadPost as ReadPostClient } from "./read-post";
 import { notFound } from "next/navigation";
 

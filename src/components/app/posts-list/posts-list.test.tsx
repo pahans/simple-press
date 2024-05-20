@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { PostsList } from ".";
-import { BlogPost } from "@/app/lib/definitions";
+import { BlogPost } from "@/lib/definitions";
 
 const posts: BlogPost[] = [
   {
@@ -17,7 +17,7 @@ const posts: BlogPost[] = [
   },
 ];
 
-jest.mock("@/app/lib/data", () => ({
+jest.mock("@/lib/data", () => ({
   fetchAllPosts: () => {
     return Promise.resolve(posts);
   },

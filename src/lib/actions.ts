@@ -1,6 +1,6 @@
 "use server";
 
-import { db } from "@/app/lib/kysely";
+import { db } from "@/lib/kysely";
 import { z } from "zod";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";

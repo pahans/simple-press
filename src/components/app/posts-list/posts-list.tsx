@@ -1,5 +1,5 @@
 import { Separator } from "@/components/ui/separator";
-import { fetchAllPosts } from "@/app/lib/data";
+import { fetchAllPosts } from "@/lib/data";
 import Link from "next/link";
 
 interface PostsListProps {}

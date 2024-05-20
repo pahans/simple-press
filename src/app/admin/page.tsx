@@ -1,5 +1,5 @@
 import { EditPost } from "@/components/app/edit-post";
-import { fetchPost } from "@/app/lib/data";
+import { fetchPost } from "@/lib/data";
 import { PostsTable } from "@/components/app/posts-table";
 import { Suspense } from "react";
 import { PostsTableSkeleton } from "@/components/app/posts-table/skeleton";

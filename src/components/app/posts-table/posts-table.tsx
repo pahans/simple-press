@@ -1,7 +1,7 @@
 "use client";
 
 import { ColumnDef } from "@tanstack/react-table";
-import { BlogPost } from "@/app/lib/definitions";
+import { BlogPost } from "@/lib/definitions";
 import { DataTable } from "./data-table";
 import { ActionsCell } from "./actions-cell";
 

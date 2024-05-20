@@ -1,6 +1,6 @@
 "use client";
 
-import { BlogPost } from "@/app/lib/definitions";
+import { BlogPost } from "@/lib/definitions";
 
 interface ReadPostProps {
   post: BlogPost;

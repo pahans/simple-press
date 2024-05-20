@@ -1,8 +1,10 @@
-require("dotenv").config({
+import { db, sql } from "@/lib/kysely";
+
+import dotenv from "dotenv";
+
+dotenv.config({
   path: [".env.development.local", ".env.local", ".env"],
 });
-
-import { db, sql } from "../src/app/lib/kysely";
 
 async function seedPosts() {
   try {

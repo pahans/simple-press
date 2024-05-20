@@ -1,6 +1,6 @@
 "use client";
-import { createOrUpdatePost } from "@/app/lib/actions";
-import { BlogPost } from "@/app/lib/definitions";
+import { createOrUpdatePost } from "@/lib/actions";
+import { BlogPost } from "@/lib/definitions";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
