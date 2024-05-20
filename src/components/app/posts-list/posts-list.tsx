@@ -1,19 +1,21 @@
-import { Separator } from "@/components/ui/separator";
-import { fetchAllPosts } from "@/lib/data";
+"use client";
 import Link from "next/link";
+import { Separator } from "@/components/ui/separator";
+import { BlogPost } from "@/lib/definitions";
 
-interface PostsListProps {}
+interface PostsListProps {
+  posts: BlogPost[];
+}
 
-export const PostsList: React.FC<PostsListProps> = async () => {
-  const posts = await fetchAllPosts();
+export const PostsList: React.FC<PostsListProps> = ({ posts }) => {
   return (
-    <section>
+    <>
       {posts.map(({ title, description, createdAt, id }) => (
         <article key={title}>
           <div>
             <div className="space-y-1">
               <p className="text-xs text-muted-foreground">
-                {createdAt.toDateString()}
+                {createdAt.toLocaleString()}
               </p>
 
               <h2 className="text-4xl leading-none capitalize">
@@ -31,6 +33,6 @@ export const PostsList: React.FC<PostsListProps> = async () => {
           </div>
         </article>
       ))}
-    </section>
+    </>
   );
 };

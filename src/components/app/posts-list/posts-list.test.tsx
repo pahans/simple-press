@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { PostsList } from ".";
+import { PostsList } from "./posts-list";
 import { BlogPost } from "@/lib/definitions";
 
 const posts: BlogPost[] = [
@@ -17,16 +17,9 @@ const posts: BlogPost[] = [
   },
 ];
 
-jest.mock("@/lib/data", () => ({
-  fetchAllPosts: () => {
-    return Promise.resolve(posts);
-  },
-}));
-
 describe("PostsList", () => {
   it("should render posts list", async () => {
-    const ResolvedPostsList = await PostsList({});
-    render(ResolvedPostsList);
+    render(<PostsList posts={posts} />);
 
     posts.forEach(({ title, description }) => {
       expect(screen.getByText(title)).toBeInTheDocument();

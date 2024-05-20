@@ -24,6 +24,7 @@ export const Header: React.FC<HeaderProps> = () => {
             alt="Simple Press Logo"
             className="object-contain"
             height={50}
+            priority
           />
           <h1>Simple Press</h1>
         </Link>
