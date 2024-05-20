@@ -1,9 +1,9 @@
 import { Edit as EditIcon, LogIn as LogInIcon } from "lucide-react";
 
 import Link from "next/link";
+import React from "react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import React from "react";
 import { cn } from "@/lib/utils";
 
 interface MenuProps {

@@ -2,13 +2,13 @@
 
 import { Drawer } from "vaul";
 import Image from "next/image";
+import { MenuIcon } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import ComposeLogo from "./compose-icon.png";
 import React from "react";
 import { Menu } from "./menu";
-import { MenuIcon } from "lucide-react";
 import { ModeToggle } from "./mode-toggle";
+import ComposeLogo from "./compose-icon.png";
 
 interface HeaderProps {}
 
