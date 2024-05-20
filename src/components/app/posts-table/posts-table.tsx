@@ -17,8 +17,8 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { DataTable } from "./data-table";
 import { BlogPost } from "@/app/lib/definitions";
+import { DataTable } from "./data-table";
 
 interface PostsTableProps {
   posts: BlogPost[];

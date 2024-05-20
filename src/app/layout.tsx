@@ -2,8 +2,8 @@ import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { fontSans } from "./fonts";
 import "./globals.css";
-import { Header } from "@/app/components/header";
-import { ThemeProvider } from "@/app/components/theme-provider";
+import { Header } from "@/components/app/header";
+import { ThemeProvider } from "@/components/app/theme-provider";
 
 export const metadata: Metadata = {
   title: "Simple Press",
