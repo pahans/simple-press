@@ -1,9 +1,9 @@
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
-import { fontSans } from "./fonts";
-import "./globals.css";
 import { Header } from "@/components/app/header";
 import { ThemeProvider } from "@/components/app/theme-provider";
+import { fontSans } from "./fonts";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Simple Press",
@@ -14,7 +14,7 @@ interface RootLayoutProps {
   children: React.ReactNode;
 }
 
-export default function RootLayout({ children }: RootLayoutProps) {
+const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="en">
       <body
@@ -37,4 +37,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;

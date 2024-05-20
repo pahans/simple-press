@@ -7,15 +7,12 @@ interface ReadPostProps {
 }
 
 export const ReadPost: React.FC<ReadPostProps> = async ({ id }) => {
-  const postId = Number(id);
-  if (isNaN(postId)) {
-    return notFound();
-  }
-  const post = await fetchPost(postId);
+  const post = await fetchPost(id);
 
   if (!post) {
     return notFound();
   }
+
   return <ReadPostClient post={post} />;
 };
 

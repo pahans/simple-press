@@ -29,7 +29,7 @@ export const EditPost: React.FC<EditPostProps> = ({ post }) => {
 
   const [isPending, startTransition] = useTransition();
 
-  const onSubmit = async (formData: FormData) => {
+  const onSubmit = (formData: FormData) => {
     startTransition(() => void createOrUpdatePost(formData));
   };
 

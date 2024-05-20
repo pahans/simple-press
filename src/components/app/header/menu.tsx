@@ -1,4 +1,4 @@
-import { Edit as EditIcon, LogIn as LogInIcon } from "lucide-react";
+import { Edit as EditIcon, List as ListIcon } from "lucide-react";
 
 import Link from "next/link";
 import React from "react";
@@ -13,7 +13,7 @@ interface MenuProps {
 
 const menuItems = [
   { icon: EditIcon, label: "Add Post", link: "/admin?overlay=new-post" },
-  { icon: LogInIcon, label: "Login", link: "/login" },
+  { icon: ListIcon, label: "Admin", link: "/admin" },
 ];
 
 export const Menu: React.FC<MenuProps> = ({ mobile, className = "" }) => {

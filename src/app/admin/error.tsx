@@ -3,13 +3,12 @@
 import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
 
-export default function Error({
-  error,
-  reset,
-}: {
+interface ErrorProps {
   error: Error & { digest?: string };
   reset: () => void;
-}) {
+}
+
+const Error = ({ error, reset }: ErrorProps) => {
   useEffect(() => {
     // Optionally log the error to an error reporting service
     console.error(error);
@@ -23,4 +22,6 @@ export default function Error({
       </Button>
     </div>
   );
-}
+};
+
+export default Error;

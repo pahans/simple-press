@@ -11,11 +11,13 @@ interface AdminPageProps {
   };
 }
 
-// TODO: It's stage that "page" does not have nextjs types defined. https://nextjs.org/docs/app/api-reference/file-conventions/page
-// Need to check next package if there are types for page components.
-export default async function AdminPage({ searchParams }: AdminPageProps) {
+// TODO: It's strange that "page" does not have Next.js types defined.
+// https://nextjs.org/docs/app/api-reference/file-conventions/page
+// Need to check the next package if there are types for page components.
+const AdminPage: React.FC<AdminPageProps> = async ({ searchParams }) => {
   const postId = Number(searchParams?.id);
   const editingPost = isNaN(postId) ? undefined : await fetchPost(postId);
+
   return (
     <div>
       {/* post = undefined handles new post */}
@@ -25,4 +27,6 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
       </Suspense>
     </div>
   );
-}
+};
+
+export default AdminPage;
