@@ -8,6 +8,7 @@ interface AdminPageProps {
   searchParams?: {
     overlay?: string;
     id?: string;
+    page?: string;
   };
 }
 
@@ -17,13 +18,13 @@ interface AdminPageProps {
 const AdminPage: React.FC<AdminPageProps> = async ({ searchParams }) => {
   const postId = Number(searchParams?.id);
   const editingPost = isNaN(postId) ? undefined : await fetchPost(postId);
-
+  const currentPage = Number(searchParams?.page) || 1;
   return (
-    <div>
+    <div className="mb-10">
       {/* post = undefined handles new post */}
       <EditPost post={editingPost} />
       <Suspense fallback={<PostsTableSkeleton />}>
-        <PostsTable />
+        <PostsTable currentPage={currentPage} />
       </Suspense>
     </div>
   );
