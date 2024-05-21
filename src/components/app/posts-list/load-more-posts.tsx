@@ -3,14 +3,16 @@ import React, { useEffect, useState, useTransition } from "react";
 import { useInView } from "react-intersection-observer";
 import { PostsListSkeleton } from "./skeleton";
 import { POST_LIST_PAGE_SIZE } from "@/lib/constants";
+import { BlogPost } from "@/lib/definitions";
+import { PostsList } from "./posts-list";
 
 interface LoadMorePostsPops {
-  children: React.ReactNode;
-  loadMoreAction: (offset: number) => Promise<React.ReactElement>;
+  posts: BlogPost[];
+  loadMoreAction: (offset: number) => Promise<BlogPost[]>;
 }
 
 export const LoadMorePosts: React.FC<LoadMorePostsPops> = ({
-  children,
+  posts: initialPosts,
   loadMoreAction,
 }) => {
   const { ref, inView } = useInView({
@@ -21,7 +23,7 @@ export const LoadMorePosts: React.FC<LoadMorePostsPops> = ({
   // First page is already fetched, So we start with POST_LIST_PAGE_SIZE offset
   const currentOffsetRef = React.useRef<number | null>(POST_LIST_PAGE_SIZE);
   const [isPending, startTransition] = useTransition();
-  const [posts, setPosts] = useState<React.ReactElement[]>([]);
+  const [posts, setPosts] = useState<BlogPost[]>(initialPosts);
 
   useEffect(() => {
     if (!inView || currentOffsetRef.current === null) return;
@@ -29,9 +31,9 @@ export const LoadMorePosts: React.FC<LoadMorePostsPops> = ({
     startTransition(async () => {
       currentOffsetRef.current! += POST_LIST_PAGE_SIZE;
       const newPosts = await loadMoreAction(currentOffsetRef.current!);
-      setPosts((prevPosts) => [...prevPosts, newPosts]);
+      setPosts((prevPosts) => [...prevPosts, ...newPosts]);
       // End of pages we can stop loading more
-      if (newPosts.props.posts.length < POST_LIST_PAGE_SIZE) {
+      if (newPosts.length < POST_LIST_PAGE_SIZE) {
         currentOffsetRef.current = null;
       }
     });
@@ -39,9 +41,9 @@ export const LoadMorePosts: React.FC<LoadMorePostsPops> = ({
 
   return (
     <section>
-      {children}
-      {posts}
-      <div ref={ref}>{isPending ? <PostsListSkeleton /> : null}</div>
+      <PostsList posts={posts} />
+      {isPending ? <PostsListSkeleton /> : null}
+      <div ref={ref} />
     </section>
   );
 };
