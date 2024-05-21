@@ -1,21 +1,23 @@
 "use client";
 
 import { BlogPost } from "@/lib/definitions";
+import { formatDateToLocal } from "@/lib/utils";
 
 interface ReadPostProps {
   post: BlogPost;
 }
 
-export const ReadPost: React.FC<ReadPostProps> = ({ post }) => {
+export const ReadPost: React.FC<ReadPostProps> = ({
+  post: { title, description, createdAt },
+}) => {
+  const formatedDate = formatDateToLocal(createdAt);
   return (
     <div className="space-y-4">
-      <p className="text-xs text-muted-foreground">
-        {post.createdAt.toLocaleString()}
-      </p>
-      <h2 className="text-4xl leading-none capitalize">{post.title}</h2>
+      <time className="text-xs text-muted-foreground">{formatedDate}</time>
+      <h2 className="text-4xl leading-none capitalize">{title}</h2>
 
       <p className="text-sm text-muted-foreground text-justify">
-        {post.description}
+        {description}
       </p>
     </div>
   );
