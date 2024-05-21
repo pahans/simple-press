@@ -1,49 +1,42 @@
 "use server";
 
 import { db } from "@/lib/kysely";
-import { z } from "zod";
-import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
+import { validateBlogPostFormData } from "./utils";
 
-const schema = z.object({
-  title: z.string(),
-  description: z.string(),
-  postId: z.number().optional(),
-});
 
-export async function createOrUpdatePost(formData: FormData) {
-  const { title, description, postId } = Object.fromEntries(formData);
+export async function createOrUpdatePost(formData: FormData, id?: number) {
+  return id ? updatePost(id, formData) : createPost(formData);
+}
 
-  const validatedFields = schema.safeParse({
-    title,
-    description,
-    id: postId,
-  });
+export async function createPost(formData: FormData) {
+  const { validatedFields, post } = validateBlogPostFormData(formData);
 
-  // Return early if the form data is invalid
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
     };
   }
-  const post = {
-    title: title?.toString() || "",
-    description: description?.toString() || "",
-  };
 
-  if (postId) {
-    await db
-      .updateTable("posts")
-      .set(post)
-      .where("posts.id", "=", Number(postId))
-      .executeTakeFirst();
-    revalidatePath("/");
-    redirect("/admin");
-  } else {
-    await db.insertInto("posts").values(post).executeTakeFirst();
-    revalidatePath("/");
-    redirect("/admin");
+  await db.insertInto("posts").values(post).executeTakeFirst();
+  revalidatePath("/");
+}
+
+export async function updatePost(id: number, formData: FormData) {
+  const { validatedFields, post } = validateBlogPostFormData(formData);
+
+  if (!validatedFields.success) {
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+    };
   }
+
+  await db
+    .updateTable("posts")
+    .set(post)
+    .where("posts.id", "=", id)
+    .executeTakeFirst();
+  revalidatePath("/");
 }
 
 export async function deletePost(id: number) {

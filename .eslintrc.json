@@ -19,7 +19,9 @@
     "it": true,
     "author": true,
     "expect": true,
-    "jest": true
+    "jest": true,
+    "beforeEach": true,
+    "afterEach": true
   },
   "rules": {
     "no-unused-vars": "off",

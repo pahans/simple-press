@@ -1,3 +1,5 @@
+"use server";
+
 import { POST_LIST_PAGE_SIZE } from "./constants";
 import { db, sql } from "./kysely";
 
@@ -27,5 +29,5 @@ export async function fetchPost(id: number) {
     .select(["id", "title", "description", "createdAt"])
     .where("posts.id", "=", id)
     .executeTakeFirst();
-  return blogPost;
+  return blogPost || null;
 }
