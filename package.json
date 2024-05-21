@@ -11,9 +11,9 @@
     "test:watch": "jest --watch",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "format": "prettier --check --ignore-path .gitignore .",
-    "format:fix": "prettier --write --ignore-path .gitignore .",
-    "seed": "ts-node --compiler-options='{\"module\":\"commonJS\"}' ./scripts/seed.ts"
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "seed-db": "ts-node --compiler-options='{\"module\":\"commonJS\"}' ./scripts/seed.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.4.0",
@@ -71,6 +71,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "postcss": "^8",
     "pre-commit": "^1.2.2",
+    "prettier-plugin-tailwindcss": "^0.5.14",
     "storybook": "^8.1.1",
     "tailwindcss": "^3.4.1",
     "ts-node": "^10.9.2",

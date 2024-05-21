@@ -3,7 +3,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export const PostsListSkeleton: React.FC = () => {
   return (
-    <div className="flex flex-col space-y-3 w-full">
+    <div className="flex w-full flex-col space-y-3">
       {Array.from({ length: 10 }, (_, i) => (
         //   using index as key is usually anti-pattern
         //   but this array does not change so it should be okay

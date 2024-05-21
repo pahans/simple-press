@@ -83,7 +83,7 @@ export const PostsTable: React.FC<PostsTableProps> = ({
                       ? null
                       : flexRender(
                           header.column.columnDef.header,
-                          header.getContext(),
+                          header.getContext()
                         )}
                   </TableHead>
                 );
@@ -115,7 +115,7 @@ export const PostsTable: React.FC<PostsTableProps> = ({
         </TableBody>
       </Table>
       <Separator />
-      <div className="flex items-center justify-end space-x-2 py-4 px-10">
+      <div className="flex items-center justify-end space-x-2 px-10 py-4">
         <Pagination>
           <PaginationContent>
             <PaginationItem>

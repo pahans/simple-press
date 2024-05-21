@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const NotFound = () => {
   return (
-    <div className="text-center space-y-10">
+    <div className="space-y-10 text-center">
       <h2>Not Found</h2>
       <p>Could not find requested resource</p>
       <Button asChild>

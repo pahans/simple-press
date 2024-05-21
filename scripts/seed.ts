@@ -20,7 +20,7 @@ async function seedPosts() {
       .addColumn("title", "varchar(255)", (cb) => cb.notNull())
       .addColumn("description", "text", (cb) => cb.notNull())
       .addColumn("createdAt", sql`timestamp with time zone`, (cb) =>
-        cb.defaultTo(sql`current_timestamp`),
+        cb.defaultTo(sql`current_timestamp`)
       )
       .execute();
     console.log(`Created "posts" table`);
@@ -59,6 +59,6 @@ async function main() {
 main().catch((err) => {
   console.error(
     "An error occurred while attempting to seed the database:",
-    err,
+    err
   );
 });

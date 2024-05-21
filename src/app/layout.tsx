@@ -21,7 +21,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable,
+          fontSans.variable
         )}
       >
         <SpeedInsights />
@@ -33,7 +33,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
         >
           <>
             <Header />
-            <main className="max-w-2xl container">{children}</main>
+            <main className="container max-w-2xl">{children}</main>
           </>
         </ThemeProvider>
       </body>

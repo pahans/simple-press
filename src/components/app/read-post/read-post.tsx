@@ -14,9 +14,9 @@ export const ReadPost: React.FC<ReadPostProps> = ({
   return (
     <div className="space-y-4">
       <time className="text-xs text-muted-foreground">{formatedDate}</time>
-      <h2 className="text-4xl leading-none capitalize">{title}</h2>
+      <h2 className="text-4xl capitalize leading-none">{title}</h2>
 
-      <p className="text-sm text-muted-foreground text-justify">
+      <p className="text-justify text-sm text-muted-foreground">
         {description}
       </p>
     </div>

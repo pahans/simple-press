@@ -25,13 +25,13 @@ export const Post: React.FC<PostProps> = ({
             {formatedDate}
           </time>
 
-          <h2 className="text-4xl leading-none capitalize">
+          <h2 className="text-4xl capitalize leading-none">
             <Link href={`/${id}`} className="hover:text-foreground/80">
               {title}
             </Link>
           </h2>
 
-          <p className="text-sm text-muted-foreground text-justify">
+          <p className="text-justify text-sm text-muted-foreground">
             {description}
             <span className="ml-1">...</span>
           </p>

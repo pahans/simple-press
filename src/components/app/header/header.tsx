@@ -15,10 +15,10 @@ export const Header: React.FC<HeaderProps> = () => {
   return (
     <header
       aria-label="Site navigation"
-      className="border-b mb-10 py-2 sticky top-0 flex-none w-full mx-auto bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-800 border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+      className="sticky top-0 mx-auto mb-10 w-full flex-none border-b border-border/40 border-gray-200 bg-background/95 bg-white py-2 backdrop-blur supports-[backdrop-filter]:bg-background/60 dark:border-gray-600 dark:bg-gray-800"
     >
-      <nav className="flex gap-2 max-w-2xl mx-auto items-center justify-between container">
-        <Link className="flex gap-2 relative items-center" href="/">
+      <nav className="container mx-auto flex max-w-2xl items-center justify-between gap-2">
+        <Link className="relative flex items-center gap-2" href="/">
           <Image
             src={ComposeLogo}
             alt="Simple Press Logo"
@@ -28,7 +28,7 @@ export const Header: React.FC<HeaderProps> = () => {
           />
           <h1>Simple Press</h1>
         </Link>
-        <div className="flex gap-4 items-center">
+        <div className="flex items-center gap-4">
           <Menu className="hidden md:block" />
           <ModeToggle />
 
@@ -40,7 +40,7 @@ export const Header: React.FC<HeaderProps> = () => {
             </Drawer.Trigger>
             <Drawer.Portal>
               <Drawer.Overlay className="fixed inset-0 bg-black/40" />
-              <Drawer.Content className="bg-white dark:border-gray-600 dark:bg-gray-800 flex flex-col h-full w-40 mt-24 fixed bottom-0 right-0 py-10">
+              <Drawer.Content className="fixed bottom-0 right-0 mt-24 flex h-full w-40 flex-col bg-white py-10 dark:border-gray-600 dark:bg-gray-800">
                 <div className="flex flex-col items-center justify-center">
                   <Menu mobile />
                 </div>
