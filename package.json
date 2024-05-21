@@ -11,7 +11,7 @@
     "test:watch": "jest --watch",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "format": "prettier --check .",
+    "format": "prettier --check **/*.{ts,tsx,css}",
     "format:fix": "prettier --write **/*.{ts,tsx,css}",
     "seed-db": "ts-node --compiler-options='{\"module\":\"commonJS\"}' ./scripts/seed.ts"
   },
