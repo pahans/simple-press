@@ -1,9 +1,6 @@
 import React from "react";
 import { render, fireEvent, waitFor } from "@testing-library/react";
 import { EditPost } from "./edit-post";
-// import { useEditPostOverlay } from './useEditPostOverlay';
-// import { fetchPost } from '@/lib/data';
-// import { createOrUpdatePost } from '@/lib/actions';
 
 jest.mock("next/navigation", () => ({
   useSearchParams: jest.fn(),
