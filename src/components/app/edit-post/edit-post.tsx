@@ -1,6 +1,6 @@
 "use client";
 import { createOrUpdatePost } from "@/lib/actions";
-import { BlogPost } from "@/lib/definitions";
+import { type BlogPost } from "@/lib/definitions";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,

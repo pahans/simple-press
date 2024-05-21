@@ -27,7 +27,7 @@ import { Separator } from "@/components/ui/separator";
 import React from "react";
 import { DateCell } from "./date-cell";
 import { ActionsCell } from "./actions-cell";
-import { BlogPost } from "@/lib/definitions";
+import { type BlogPost } from "@/lib/definitions";
 import { cn } from "@/lib/utils";
 import { usePathname, useSearchParams } from "next/navigation";
 

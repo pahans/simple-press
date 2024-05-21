@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
+import { type BlogPost } from "@/lib/definitions";
 import { PostsList } from "./posts-list";
-import { BlogPost } from "@/lib/definitions";
 
 const posts: BlogPost[] = [
   {

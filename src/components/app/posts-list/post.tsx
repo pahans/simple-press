@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
-import { BlogPost } from "@/lib/definitions";
+import { type BlogPost } from "@/lib/definitions";
 import { formatDateToLocal } from "@/lib/utils";
 
 interface PostProps extends BlogPost {}

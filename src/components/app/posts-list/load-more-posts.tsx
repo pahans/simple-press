@@ -3,7 +3,7 @@ import React, { useEffect, useState, useTransition } from "react";
 import { useInView } from "react-intersection-observer";
 import { PostsListSkeleton } from "./skeleton";
 import { POST_LIST_PAGE_SIZE } from "@/lib/constants";
-import { BlogPost } from "@/lib/definitions";
+import { type BlogPost } from "@/lib/definitions";
 import { PostsList } from "./posts-list";
 
 interface LoadMorePostsPops {

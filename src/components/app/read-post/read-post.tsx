@@ -1,6 +1,6 @@
 "use client";
 
-import { BlogPost } from "@/lib/definitions";
+import { type BlogPost } from "@/lib/definitions";
 import { formatDateToLocal } from "@/lib/utils";
 
 interface ReadPostProps {

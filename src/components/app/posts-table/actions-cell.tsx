@@ -4,7 +4,7 @@ import { Edit as EditIcon } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { deletePost } from "@/lib/actions";
-import { BlogPost } from "@/lib/definitions";
+import { type BlogPost } from "@/lib/definitions";
 import { ConfirmDeleteDialog } from "./confirm-delete-dialog";
 import { useCallback } from "react";
 
