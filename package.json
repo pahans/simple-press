@@ -11,6 +11,8 @@
     "test:watch": "jest --watch",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
+    "format": "prettier --check --ignore-path .gitignore .",
+    "format:fix": "prettier --write --ignore-path .gitignore .",
     "seed": "ts-node --compiler-options='{\"module\":\"commonJS\"}' ./scripts/seed.ts"
   },
   "dependencies": {
@@ -77,6 +79,7 @@
   },
   "pre-commit": [
     "lint",
+    "format",
     "test"
   ]
 }

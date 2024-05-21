@@ -9,8 +9,8 @@ describe("ConfirmDeleteDialog", () => {
     expect(screen.getByText("Are you absolutely sure?")).toBeInTheDocument();
     expect(
       screen.getByText(
-        "This action cannot be undone. This will permanently delete this blog post."
-      )
+        "This action cannot be undone. This will permanently delete this blog post.",
+      ),
     ).toBeInTheDocument();
     expect(screen.getByText("Cancel")).toBeInTheDocument();
     expect(screen.getByText("Continue")).toBeInTheDocument();

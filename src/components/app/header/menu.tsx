@@ -24,7 +24,7 @@ export const Menu: React.FC<MenuProps> = ({ mobile, className = "" }) => {
         {
           "flex-col items-start": mobile,
         },
-        className
+        className,
       )}
     >
       {menuItems.map((item) => (
