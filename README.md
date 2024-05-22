@@ -1,6 +1,7 @@
 ## Getting Started
 
 This project has been tested with Node.js versions 18 and 20.
+You can see this project live at https://simple-press.vercel.app/.
 
 1. **Setup Environment Variables**
    - Create an `.env` file in the root directory of the project.
@@ -59,6 +60,9 @@ execute `npm run seed-db` to populate the database. This step is only necessary 
     - Supports editing existing posts.
     - Allows deletion of posts.
 
+## Screenshots
+NB: In these clips, I have intentially added delays so loading screens are visible.
+
 ## Tech Stack
 
 - React, Typescript
@@ -70,6 +74,7 @@ execute `npm run seed-db` to populate the database. This step is only necessary 
 ## Future Improvements
 
 - Enhance test coverage.
+- Introduce a test/staging environments.
 - Implement user authentication.
 - Introduce end-to-end tests.
 - More granular error handling.
