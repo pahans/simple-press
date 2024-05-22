@@ -5,7 +5,7 @@ import { EditPost } from "./edit-post";
 jest.mock("next/navigation", () => ({
   useSearchParams: jest.fn(),
 }));
-jest.mock("./useEditPostOverlay");
+jest.mock("./use-edit-post-overlay");
 jest.mock("@/lib/data");
 jest.mock("@/lib/actions");
 jest.mock("@vercel/postgres-kysely", () => ({
@@ -14,7 +14,7 @@ jest.mock("@vercel/postgres-kysely", () => ({
 
 const useSearchParamsMock = require("next/navigation").useSearchParams;
 const useEditPostOverlayMock =
-  require("./useEditPostOverlay").useEditPostOverlay;
+  require("./use-edit-post-overlay").useEditPostOverlay;
 const fetchPostMock = require("@/lib/data").fetchPost;
 const createOrUpdatePostMock = require("@/lib/actions").createOrUpdatePost;
 

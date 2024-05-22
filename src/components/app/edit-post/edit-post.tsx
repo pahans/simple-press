@@ -16,7 +16,7 @@ import { LoaderCircleIcon } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { fetchPost } from "@/lib/data";
 import { createOrUpdatePost } from "@/lib/actions";
-import { useEditPostOverlay } from "./useEditPostOverlay";
+import { useEditPostOverlay } from "./use-edit-post-overlay";
 
 interface State {
   post: BlogPost | null;
