@@ -61,7 +61,17 @@ execute `npm run seed-db` to populate the database. This step is only necessary 
     - Allows deletion of posts.
 
 ## Screenshots
-NB: In these clips, I have intentially added delays so loading screens are visible.
+NB: In these clips, I have intentionally added delays so loading screens are visible.
+
+![Home page](https://github.com/pahans/simple-press/assets/1552869/7ad7bc7d-de9c-4309-abb0-831334292fdc)
+
+
+![Admin page](https://github.com/pahans/simple-press/assets/1552869/08117dac-d8dc-443e-ad40-67c8b539be15)
+
+
+![Mobile menu](https://github.com/pahans/simple-press/assets/1552869/437916f3-c91e-43e2-b556-cb8704a0dd8b)
+
+
 
 ## Tech Stack
 
