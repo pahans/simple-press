@@ -1,5 +1,6 @@
 "use client";
 
+// Adopted Component from https://ui.shadcn.com/
 import * as React from "react";
 import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog";
 

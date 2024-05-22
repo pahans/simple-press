@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 
+// Adopted Component from https://ui.shadcn.com/
 function Skeleton({
   className,
   ...props

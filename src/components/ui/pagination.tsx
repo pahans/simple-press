@@ -1,4 +1,5 @@
 import * as React from "react";
+// Adopted Component from https://ui.shadcn.com/
 import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react";
 
 import { cn } from "@/lib/utils";
