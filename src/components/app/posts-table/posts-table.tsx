@@ -30,6 +30,7 @@ import { ActionsCell } from "./actions-cell";
 import { type BlogPost } from "@/lib/definitions";
 import { cn } from "@/lib/utils";
 import { usePathname, useSearchParams } from "next/navigation";
+import { POST_LIST_PAGE_SIZE } from "@/lib/constants";
 
 interface PostsTableProps {
   posts: BlogPost[];
@@ -70,6 +71,7 @@ export const PostsTable: React.FC<PostsTableProps> = ({
     return `${pathname}?${params.toString()}`;
   };
 
+  const canVisitNext = posts.length === POST_LIST_PAGE_SIZE;
   return (
     <div className="rounded-md border">
       <Table>
@@ -128,7 +130,13 @@ export const PostsTable: React.FC<PostsTableProps> = ({
               />
             </PaginationItem>
             <PaginationItem>
-              <PaginationNext href={createPageURL(currentPage + 1)} isActive />
+              <PaginationNext
+                className={cn({
+                  "pointer-events-none": !canVisitNext,
+                })}
+                href={createPageURL(currentPage + 1)}
+                isActive={canVisitNext}
+              />
             </PaginationItem>
           </PaginationContent>
         </Pagination>
