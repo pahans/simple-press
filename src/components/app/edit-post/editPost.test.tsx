@@ -8,6 +8,9 @@ jest.mock("next/navigation", () => ({
 jest.mock("./useEditPostOverlay");
 jest.mock("@/lib/data");
 jest.mock("@/lib/actions");
+jest.mock("@vercel/postgres-kysely", () => ({
+  createKysely: jest.fn(),
+}));
 
 const useSearchParamsMock = require("next/navigation").useSearchParams;
 const useEditPostOverlayMock =
