@@ -12,7 +12,7 @@ export async function fetchAllPosts(offset = 0) {
       sql`substring(description from 1 for 300)`.as("description"),
       "createdAt",
     ])
-    .orderBy("createdAt desc")
+    .orderBy(["createdAt desc", "title"])
     .offset(offset)
     .limit(POST_LIST_PAGE_SIZE)
     .execute();
