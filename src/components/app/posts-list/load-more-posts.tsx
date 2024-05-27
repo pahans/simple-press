@@ -6,12 +6,12 @@ import { POST_LIST_PAGE_SIZE } from "@/lib/constants";
 import { type BlogPost } from "@/lib/definitions";
 import { PostsList } from "./posts-list";
 
-interface LoadMorePostsPops {
+interface LoadMorePostsProps {
   posts: BlogPost[];
   loadMoreAction: (offset: number) => Promise<BlogPost[]>;
 }
 
-export const LoadMorePosts: React.FC<LoadMorePostsPops> = ({
+export const LoadMorePosts: React.FC<LoadMorePostsProps> = ({
   posts: initialPosts,
   loadMoreAction,
 }) => {
